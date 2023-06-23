@@ -30,8 +30,14 @@
                 </div>
                 <div class="col-md-9 pe-5">
   
-                  <input type="email" name="email" class="form-control form-control-lg" placeholder="example@gmail.com" />
-  
+                  <input type="email" name="email" class="form-control form-control-lg" placeholder="example@gmail.com"
+                  value="<%= locals.old && old.email?old.email:"" %>" />
+                  <% if (locals.mjeDeError && mensajeDeError.email ) { %>
+                  <p style="color: orangered" class="error" id="error">
+                    <%- mjeDeError.email.msg %>
+                  </p>
+                  <% } %>
+
                 </div>
               </div>
   
@@ -39,23 +45,28 @@
   
               <div class="row align-items-center py-3">
                 <div class="col-md-3 ps-5">
-  
                   <h6 class="mb-0">Password</h6>
-  
                 </div>
-                <div class="col-md-9 pe-5">
-  
-                  <input type="password" name="password" class="form-control form-control-lg" >
-  
+
+                <div class="col-md-9 pe-5"> 
+                  <input type="password" name="password" class="form-control form-control-lg
+                  form-control-lg"
+                   value="<%= locals.old &&
+                      old.password?old.password:"" %>" /> <% if
+                      (locals.mjeDeError && mjeDeError.password) { %>
+                      <p style="color: orangered" class="error" id="error">
+                        <%- mjeDeError.password.msg %>
+                      </p>
+                      <% } %> 
                 </div>
               </div>
   
               <hr class="mx-n3">
-  
-              <div class="px-5 py-4">
-                <button type="submit" class="btn btn-primary btn-lg">Login</button>
+              <div style="display: flex; gap:5px;align-items: center;justify-content: center;"><input type="checkbox" id="remember" name="remember"/>
+                <label for="remember">Recordar usuario</label></div>
+                <div class="px-5 py-4" style="display: flex; gap:5px;align-items: center;justify-content: center;">
+                    <button type="submit" class="btn btn-primary btn-lg">Login</button>
               </div>
-  
             </div>
           </form>
   

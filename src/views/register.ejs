@@ -30,7 +30,13 @@
                 </div>
                 <div class="col-md-9 pe-5">
   
-                  <input type="text" name="name" class="form-control form-control-lg" />
+                  <input type="text" name="name" class="form-control form-control-lg" 
+                  value="<%= locals.old && old.name?old.name:"" %>" />
+                   <% if (locals.mjeDeError && mjeDeError.name ) { %>
+                  <p style="color: orangered;" class="error" id="error">
+                    <%- mjeDeError.name.msg %>
+                  </p>
+                  <% } %>
   
                 </div>
               </div>
@@ -44,8 +50,13 @@
   
                 </div>
                 <div class="col-md-9 pe-5">
-  
-                  <input type="email" name="email" class="form-control form-control-lg" placeholder="example@gmail.com" />
+                  <input type="email" name="email" class="form-control form-control-lg" placeholder="example@gmail.com"
+                      value="<%= locals.old && old.email?old.email:"" %>" /> 
+                      <% if (locals.mjeDeError && mjeDeError.email ) { %>
+                      <p style="color: orangered;" class="error" id="error">
+                        <%- mjeDeError.email.msg %>
+                      </p>
+                      <% } %>
   
                 </div>
               </div>
@@ -59,9 +70,13 @@
   
                 </div>
                 <div class="col-md-9 pe-5">
-  
-                  <input type="text" name="country" class="form-control form-control-lg" placeholder="Argentina" />
-  
+                  <input type="text" name="country" class="form-control form-control-lg" placeholder="Argentina"
+                    value="<%= locals.old && old.name?old.name:"" %>" />
+                    <% if (locals.mjeDeError && mjeDeError.country ) { %>
+                      <p style="color: orangered;" class="error" id="error">
+                        <%- mjeDeError.country.msg %>
+                      </p>
+                      <% } %>
                 </div>
               </div>
   
@@ -74,8 +89,13 @@
   
                 </div>
                 <div class="col-md-9 pe-5">
-  
-                  <input type="password" name="password" class="form-control form-control-lg" >
+                  <input type="password" name="password" class="form-control form-control-lg" 
+                  value="<%= locals.old && old.password?old.password:"" %>" />
+                  <% if (locals.mjeDeError && mjeDeError.password) { %>
+                  <p style="color: orangered;" class="error" id="error">
+                    <%- mjeDeError.password.msg %>
+                  </p>
+                  <% } %> 
   
                 </div>
               </div>
@@ -85,16 +105,26 @@
               <div class="row align-items-center py-3">
                 <div class="col-md-3 ps-5">
   
-                  <h6 class="mb-0">Category</h6>
-  
+                  <h6 class="mb-0">Category</h6> 
                 </div>
+
                 <div class="col-md-9 pe-5">
   
                   <input type="radio" name="category" id="admin" value="1" />
                   <label for="admin">Admin</label>
-                  <input type="radio" name="category" id="user" value="2" />
-                  <label for="user">User</label>
-  
+                      <% if (locals.mjeDeError && mjeDeError.category ) { %>
+                      <p style="color: orangered;" class="error" id="error">
+                        <%- mjeDeError.category.msg %>
+                      </p>
+                      <% } %>
+                      
+                      <input type="radio" name="category" id="user" value="2" />
+                      <label for="user">User</label>
+                      <% if (locals.mjeDeError && mjeDeError.category ) { %>
+                      <p style="color: orangered;" class="error" id="error">
+                        <%- mjeDeError.category.msg %>
+                      </p>
+                      <% } %>
                 </div>
               </div>
   
